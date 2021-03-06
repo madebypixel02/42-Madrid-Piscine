@@ -1,0 +1,6 @@
+Credentials cache: API:5405
+        Principal: aperez-b@42MADRID.COM
+
+  Issued                Expires               Principal
+Feb 22 15:48:22 2021  Feb 23 01:48:22 2021  krbtgt/42MADRID.COM@42MADRID.COM
+Feb 22 15:48:23 2021  Feb 23 01:48:22 2021  HTTP/student-storage.42madrid.com@42MADRID.COM
