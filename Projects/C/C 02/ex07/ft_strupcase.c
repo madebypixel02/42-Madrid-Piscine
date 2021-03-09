@@ -6,14 +6,14 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:09:07 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/06 09:17:36 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/09 12:38:11 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_str_is_alpha(char *str);
 
 char	*ft_strupcase(char *str)
-{	
+{
 	char *str0;
 
 	str0 = str;

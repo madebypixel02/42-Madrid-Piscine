@@ -6,7 +6,7 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:07:42 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/08 11:45:25 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/09 11:22:35 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@ int		ft_sizeof(char *str);
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
-	int j;
-	int size;
+	unsigned int i;
+	unsigned int size;
 
 	i = 0;
 	size = ft_sizeof(src);
