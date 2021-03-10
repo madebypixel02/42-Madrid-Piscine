@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-char		*ft_lowcase(char *str);
+char		*ft_strlowcase(char *str);
 
 int		main(void)
 {
@@ -8,5 +8,5 @@ int		main(void)
 
 	printf("Original: %s\n", string);
 
-	printf("Lowercase: %s\n", ft_lowcase(string));
+	printf("Lowercase: %s\n", ft_strlowcase(string));
 }

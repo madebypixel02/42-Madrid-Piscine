@@ -3,14 +3,17 @@
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n);
 
-int		main(void)
+int main(void)
 {
-	char src[] = "HelloWorlda";
-	char dest1[55];
-	char dest2[55];
-	int n;
+	/*char src[] = "Hello World!";
+	char dest2[6];
+	unsigned int n;
 
-	n = 10;
-	printf("\n%s", ft_strncpy(dest1, src, n));
-	printf("\n%s", strncpy(dest2, src, n));
+	
+	printf("%s\n", strncpy(dest2, src, n));*/
+	char chararray[12];
+
+    printf("%s", ft_strncpy(chararray, "abcdefghi jklm", sizeof(chararray)));
+	return (0);
+	
 }

@@ -1,10 +1,7 @@
-#include <stdio.h>
+void	ft_putstr_non_printable(char *str);
 
-void ft_putstr_non_printable(char *str);
-
-int		main(void)
+int main()
 {
-	char string[] = "Coucou\n vas bien ?";
-
-	ft_putstr_non_printable(string);
+	char str[] = "Coucou\ntu vas bien ?";
+	ft_putstr_non_printable(str);
 }
