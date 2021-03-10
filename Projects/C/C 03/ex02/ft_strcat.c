@@ -6,7 +6,7 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:55:34 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/08 21:19:44 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/10 15:44:38 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,17 @@ int		ft_sizeof(char *str);
 
 char	*ft_strcat(char *dest, char *src)
 {
-	int		size_dst;
-	int		size_src;
-	char	*full_str;
-	int		i;
+	char *ptr;
 
-	/*full_str = NULL;*/
-
-	/*printf("%d",ft_sizeof(dest) + ft_sizeof(src));*/
-	size_dst = ft_sizeof(dest);
-	size_src = ft_sizeof(src);
-	i = '0';
-	
-	while (i < (size_src + size_dst) + '0')
+	ptr = dest + ft_sizeof(dest);
+	while (*src != '\0')
 	{
-		if (i < size_src)
-			full_str[i] = src[i];
-		/*else
-			full_str[i] = dest[i];*/
-		i++;
+		*ptr = *src;
+		ptr++;
+		src++;
 	}
-	return (full_str);
+	*ptr = '\0';
+	return (dest);
 }
 
 int		ft_sizeof(char *str)

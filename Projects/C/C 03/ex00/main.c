@@ -9,7 +9,7 @@ int main()
     int result;
 
     // comparing strings str1 and str2
-    result = ft_strcmp(str1, str2);
+    result = ft_strcmp(str2, str3);
     printf("strcmp(str1, str2) = %d\n", result);
 
     // comparing strings str1 and str3
