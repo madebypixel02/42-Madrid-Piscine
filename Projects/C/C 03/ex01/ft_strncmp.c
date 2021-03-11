@@ -6,16 +6,16 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:36:49 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/10 15:44:14 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:05:30 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strcmp(char *s1, char *s2, unsigned int n)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i;
 
 	i = 0;
-	while (i != n - 1)
+	while (i != n && (*s1 != '\0' || *s2 != '\0'))
 	{
 		if (*s1 != *s2)
 			return (*s1 - *s2);
