@@ -6,11 +6,11 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 19:55:34 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/11 13:16:31 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/12 10:28:28 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int				ft_sizeof(char *str);
+unsigned int	ft_sizeof(char *str);
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
@@ -33,9 +33,9 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 	return (ft_sizeof(dest) + ft_sizeof(src));
 }
 
-int			ft_sizeof(char *str)
+unsigned int	ft_sizeof(char *str)
 {
-	int i;
+	unsigned int i;
 
 	i = 0;
 	while (str[i] != '\0')
