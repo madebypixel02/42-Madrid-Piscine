@@ -6,7 +6,7 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:15:06 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/14 12:19:51 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/14 23:11:03 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,55 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int		ft_atoi(char *str);
-int		ft_count_lines(char *str);
-struct key_value	*ft_create_dict(char *str, size_t size);
-
-int		main(int argc, char **str)
+int	main(int argc, char **str)
 {
-	unsigned int	sz;
-	int				fd;
-	char			*c;
-	size_t			count;
-	struct key_value *dictionary;
+	unsigned int	size;
+	char			*file;
+	char			*dict_str;
+	struct s_kv		*dict;
+	char			*nbr;
 
-	if (argc != 2 && argc != 3)
+	dict_str = (char *)malloc(65535);
+	file = "numbers.dict";
+	if (argc == 3)
 	{
-		write(1, "Error", 5);
-		return (0);
+		file = str[1];
+		nbr = str[2];
 	}
-	count = 65535;
-	fd = open("numbers.dict", O_RDONLY);
-	c = (char *)malloc(65535);
-	if (fd == -1)
-	{
-		printf("File couldn't be read!\n");
-		return (1);
-	}
-	sz = read(fd, c, count);
-	c[sz] = '\0';
-	dictionary = ft_create_dict(c, sz);
-	printf("%d", dictionary[10].key);
-	printf("%s", dictionary[10].value);
-	
+	else if (argc == 2)
+		nbr = str[1];
+	if (ft_check_args(argc, str, file) == 1)
+		ft_print_error();
+	size = read(open(file, O_RDONLY), dict_str, 65535);
+	dict_str[size] = '\0';
+	dict = ft_create_dict(dict_str, size);
+	free(dict_str);
+	ft_to_str(nbr, dict);
 	return (0);
+}
+
+int	ft_check_args(int argc, char **str, char *file)
+{
+	int	is_error;
+
+	is_error = 0;
+	if (argc != 2 && argc != 3)
+		is_error = 1;
+	else if (argc == 2)
+	{
+		if (ft_input_atoi(str[1]) < 0)
+			is_error = 1;
+	}
+	else if (argc == 3)
+	{
+		if (ft_input_atoi(str[2]) < 0 || open(file, O_RDONLY) == -1)
+			is_error = 1;
+	}
+	return (is_error);
+}
+
+void	ft_print_error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }
