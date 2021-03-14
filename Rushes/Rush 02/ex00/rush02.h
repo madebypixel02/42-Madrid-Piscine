@@ -4,7 +4,7 @@
 
 struct key_value
 {
-    int key;
+    unsigned int key;
     char *value;
 };
 #endif

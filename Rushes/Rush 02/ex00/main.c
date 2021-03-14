@@ -6,7 +6,7 @@
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 14:15:06 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/13 20:22:08 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/14 12:19:51 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 int		ft_atoi(char *str);
 int		ft_count_lines(char *str);
-void	ft_create_dict(char *str);
+struct key_value	*ft_create_dict(char *str, size_t size);
 
 int		main(int argc, char **str)
 {
@@ -26,6 +26,7 @@ int		main(int argc, char **str)
 	int				fd;
 	char			*c;
 	size_t			count;
+	struct key_value *dictionary;
 
 	if (argc != 2 && argc != 3)
 	{
@@ -42,7 +43,9 @@ int		main(int argc, char **str)
 	}
 	sz = read(fd, c, count);
 	c[sz] = '\0';
-	ft_create_dict(c);
-	printf("Those bytes are as follows:\n%s", c);
+	dictionary = ft_create_dict(c, sz);
+	printf("%d", dictionary[10].key);
+	printf("%s", dictionary[10].value);
+	
 	return (0);
 }

@@ -1,46 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stratoi.c                                       :+:      :+:    :+:   */
+/*   ft_getvalues.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aperez-b <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 19:29:30 by aperez-b          #+#    #+#             */
-/*   Updated: 2021/03/13 20:23:03 by aperez-b         ###   ########.fr       */
+/*   Updated: 2021/03/14 10:57:04 by aperez-b         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int		ft_isspce(char *str);
 
-int		ft_atoi(char *str)
+int		ft_strlen(char *str);
+
+int		ft_max_len(char *str);
+
+int		ft_getvalues(char *str)
 {
-	char *nbr;
+	int	nbr;
 
 	nbr = 0;
-	sign = '+';
-	while (ft_isspce(str) == 1)
-		str++;
-	if (*str == '+' || *str == '-')
-	{
-		if (*str == '-')
-			sign = '-';
-		str++;
-	}
-		
-	while (*str >= 48 && *str <= 57)
-	{
-		nbr = (nbr * 10) + *str - '0';
-		str++;
-	}
-	if (sign == '-')
-		return (-nbr);
-	else
-		return (nbr);
+	return (nbr);
 }
 
-int		ft_isspce(char *str)
+int		ft_strlen(char *str)
 {
-	if ((*str >= 9 && *str <= 13) || *str == ' ')
-		return (1);
-	return (0);
+	char *ptr;
+	int len;
+	int i;
+
+	len = 0;
+	i= 0;
+	while (str[i] != '\0' && str[i] != '\n')
+	{
+		if (ft_isspce(&str[i]) == 0 && str[i] >= 32 && str[i] <= 126)
+			len++;
+		i++;
+	}
+	return (len);
+}
+
+int		ft_max_len(char *str)
+{
+	int i;
+	int max_len;
+
+	max_len = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ':')
+		{
+			if (ft_strlen(&str[i + 1]) > max_len)
+				max_len = ft_strlen(&str[i + 1]);
+		}
+		i++;
+	}
+	return (max_len);
 }
